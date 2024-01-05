@@ -15,15 +15,29 @@ function NewsCards({ category }) {
 
   const datanews = useNews({ country, category, page, pagesize })
 
+
+
+  function scrollToElement(elementId) {
+    const element = document.getElementById(elementId);
+  
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.error(`Element with id ${elementId} not found`);
+    }
+  }
+  
+
   // if (datanews){
   //    console.log(datanews);}
   useEffect(() => {
 
 
     setpagesize(10);
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-    console.log(category)
+       console.log(category)
+      
 
+       scrollToElement('head');
 
 
 
@@ -48,12 +62,12 @@ function NewsCards({ category }) {
 
   return (
     <>
-
+        
       {
-
+     
         datanews && datanews.articles.length > 0 ? datanews.articles.map((data) => (
-          // <a href={data.}></a>
-          <div key={data.title} className='newscard'>
+          // <a href={da
+          <div key={data.title} id='head' className='newscard'>
             <img src={data.urlToImage ? data.urlToImage : 'https://namiohio.org/wp-content/uploads/2021/06/news-update-1-1080x500.png'} alt="" />
             {data.source.name && <span><p>publisher - {data.source.name}</p></span>}
             <h1>{data.title.slice(0, 100)}...</h1>
