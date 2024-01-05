@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
-function useNews({country,category,page,pagesize}) {
+function useNews({ country, category, page, pagesize }) {
 
-  
+
   const [newsdata, setNewsdata] = useState(null)
-  
-useEffect(() => {
- 
-  
+
+  useEffect(() => {
+
+
 
     fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=5c91fb31652b490fa5627863c3d8938f&page=${page}&pageSize=${pagesize}`)
 
@@ -28,10 +28,10 @@ useEffect(() => {
 
       .catch((err) => console.log('Error:', err));
 
-    },[category,page,pagesize])
-   
+  }, [category, page, pagesize])
+
 
   return newsdata
 }
 
-export default useNews;
+export default useNews;

@@ -3,79 +3,79 @@ import { Link, NavLink } from 'react-router-dom'
 
 function Header() {
 
-  const [menu,setmenu] = useState(false)
+  const [menu, setmenu] = useState(false)
 
-  const navItems =[
+  const navItems = [
     {
-      name:'Home',
-      slug:'/'
+      name: 'Home',
+      slug: '/'
     },
 
     {
-      name:'Entertainment',
-      slug:'/entertainment'
+      name: 'Entertainment',
+      slug: '/entertainment'
     },
     {
-      name:'Politics',
-      slug:'/politics'
-    },
-
-    {
-      name:'Sports',
-      slug:'/sports'
+      name: 'Politics',
+      slug: '/politics'
     },
 
     {
-      name:'Health',
-      slug:'/health'
+      name: 'Sports',
+      slug: '/sports'
     },
 
     {
-      name:'Technology',
-      slug:'/technology'
+      name: 'Health',
+      slug: '/health'
     },
 
     {
-      name:'Science',
-      slug:'/science'
+      name: 'Technology',
+      slug: '/technology'
+    },
+
+    {
+      name: 'Science',
+      slug: '/science'
     },
 
   ]
 
   return (
     <>
-    <header>
+      <header>
         <h1><div className='logo'></div> News<h1>Hub</h1></h1>
 
         <ul>
 
-        {navItems && navItems.map((item) => 
-          <NavLink className={({isActive}) => isActive && 'active'} key={item.name} to={item.slug}>
-          <li key={item.name}>{item.name}</li>
-          </NavLink>
+          {navItems && navItems.map((item) =>
+            <NavLink className={({ isActive }) => isActive && 'active'} key={item.name} to={item.slug}>
+              <li key={item.name}>{item.name}</li>
+            </NavLink>
 
-        )}
+          )}
 
         </ul>
 
         <i onClick={() => setmenu((prev) => !prev)} class="ri-menu-fill"></i>
 
-       
 
-    </header>
 
-    {menu && <div className="menuphone">   <ul>
+      </header>
 
-      <h1>Categories</h1>
+      {menu && <div className="menuphone">   <ul>
 
-{navItems && navItems.map((item) => 
-  <NavLink onClick={() => setmenu((prev) => !prev)} className={({isActive}) => isActive && 'active'} key={item.name} to={item.slug}>
-  <li key={item.name}>{item.name}</li>
-  </NavLink>
+        <h1>Categories</h1>
 
-)}
+        {navItems && navItems.map((item) =>
+          <NavLink onClick={() => setmenu((prev) => !prev)} className={({ isActive }) => isActive && 'active'} key={item.name} to={item.slug}>
+            <li key={item.name}>{item.name}</li>
+          </NavLink>
 
-</ul></div>}
+        )}
+
+      </ul></div>}
     </>
   )
 }

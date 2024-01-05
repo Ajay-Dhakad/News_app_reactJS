@@ -3,29 +3,29 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 // import useNews from './Hooks/useNews'
 import NewsCards from './Components/NewsCards'
-import {createBrowserRouter,RouterProvider} from 'react-router-dom'
-import { Outlet} from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 
 
- function App() {
+function App() {
 
- 
+
 
 
   const router = createBrowserRouter([
 
 
     {
-      path:'/',
-      element:<NewsCards category={'politics'}/>
+      path: '/',
+      element: <NewsCards category={'politics'} />
     }
     ,
 
-    
+
     {
-      path:'/entertainment',
-      element:<NewsCards/>
+      path: '/entertainment',
+      element: <NewsCards />
     }
 
   ])
@@ -33,16 +33,16 @@ import { Outlet} from 'react-router-dom'
 
   return (
     <>
-      <Header/>
-      <div  className="main" >
-    
+      <Header />
+      <div className="main" >
 
-<Outlet/>
 
-</div>
-    
-     <Footer/>
-    </> 
+        <Outlet />
+
+      </div>
+
+      <Footer />
+    </>
   )
 }
 

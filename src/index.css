@@ -1,36 +1,37 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body,html{
+body,
+html {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
 
-#root{
+#root {
   width: 100%;
   height: 100%;
   /* border: 2px solid red; */
   background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   color: rgb(0, 0, 0);
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-header{
+header {
   width: 100%;
   height: 10%;
-  background-color:#201e1e;
-  position:absolute;
+  background-color: #201e1e;
+  position: absolute;
   top: 0;
   display: flex;
   justify-content: space-between;
@@ -38,10 +39,10 @@ header{
   padding: 0 10px;
   color: white;
 
- 
+
 }
 
-header a{
+header a {
   color: white;
   font-size: 17px;
   font-weight: bold;
@@ -50,56 +51,56 @@ header a{
   padding: 0 5px;
   border-radius: 5px;
 
-  &:hover{
+  &:hover {
     background-color: red;
     color: white;
   }
-  
+
 }
 
-header .logo{
+header .logo {
   width: 40px;
   height: 40px;
   /* border: 2px solid red; */
-  
+
   background-image: url('https://cdn.jim-nielsen.com/macos/128/news-2021-05-25.png');
 
   background-size: contain;
 }
 
-.active{
+.active {
   color: red;
 }
 
-header h1{
+header h1 {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 30px;
 
-  
+
 }
 
-header h1 h1{
+header h1 h1 {
   color: red;
   /* font-size: 20px; */
 }
 
-header ul{
-    display: flex;
-    list-style-type: none;
-    gap: 5px;
-  }
+header ul {
+  display: flex;
+  list-style-type: none;
+  gap: 5px;
+}
 
-footer{
+footer {
   width: 100%;
   height: 10%;
-  background-color:#333232;
-  position:absolute;
+  background-color: #333232;
+  position: absolute;
   bottom: 0;
 }
 
-.main{
+.main {
   width: 100%;
   height: 80%;
   overflow: scroll;
@@ -111,13 +112,13 @@ footer{
   padding: 10px;
   position: relative;
   padding-bottom: 20px;
-  
+
 }
 
-.newscard{
+.newscard {
   width: 320px;
- height:450px;
- /* height: fit-content; */
+  height: 450px;
+  /* height: fit-content; */
   font-size: 10px;
   color: rgb(0, 0, 0);
   background-color: #e1dddd;
@@ -127,39 +128,39 @@ footer{
   flex-direction: column;
   cursor: pointer;
   overflow: hidden;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 10px;
   padding: 1px;
-  padding-bottom:5px ;
+  padding-bottom: 5px;
   transition: .2s all ease;
-  
+
   /* text-align: center; */
-  
+
 }
 
-.newscard img{
+.newscard img {
   width: 100%;
   height: 200px;
   /* transition: .5s; */
 
 }
 
-.newscard h1{
+.newscard h1 {
   /* border: 2px solid red; */
   height: 100px;
   padding: 5px;
   /* overflow: hidden; */
 }
 
-.newscard p{
+.newscard p {
   height: 100px;
   /* border: 2px solid red; */
-  font-size:medium;
+  font-size: medium;
   text-align: start;
   padding: 0 5px;
 }
 
-.newscard span{
+.newscard span {
   width: 100%;
   color: rgb(255, 255, 255);
   padding: 2px;
@@ -168,25 +169,26 @@ footer{
   background-color: #2a2979;
 }
 
-.newscard span p{
+.newscard span p {
   height: fit-content;
   font-size: 14px;
 }
 
-.newscard:hover{
+.newscard:hover {
 
-transform: scale(.97);
-&.newscard button{
+  transform: scale(.97);
+
+  &.newscard button {
     width: 250px;
     background-color: #0dab34;
   }
-  
+
 
 
 }
 
-.newscard button{
-  width: 200px ;
+.newscard button {
+  width: 200px;
   height: 30px;
   border: none;
   cursor: pointer;
@@ -197,94 +199,94 @@ transform: scale(.97);
   transition: .5s all;
   border-radius: 5px;
 
- 
+
 }
 
-strong{
+strong {
   font-size: 25px;
 }
 
 
 
-.nextpagenews{
+.nextpagenews {
 
- width: 100%;
- padding: 10px;
- text-align: center;  
-  
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+
 }
 
-.nextpagenews button{
-    width: 300px;
-    border: none;
- background-color: #0dab34;
-color: white;
-font-size: 20px;
-font-weight: bold;
-    height: 50px;
-
-   
-  }
-
-button:hover{
-      background-color: #0e7626;
-      cursor: pointer;
-    }
+.nextpagenews button {
+  width: 300px;
+  border: none;
+  background-color: #0dab34;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  height: 50px;
 
 
-i{
+}
+
+button:hover {
+  background-color: #0e7626;
+  cursor: pointer;
+}
+
+
+i {
   display: none;
 }
 
-    @media (max-width:730px) {
-      header ul{
-        display: none;
-      }
+@media (max-width:730px) {
+  header ul {
+    display: none;
+  }
 
-      i{
-        display: block;
-        font-size: 20px;
-        font-weight: bold;
-      }
-    }
+  i {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
 
-    .menuphone{
-      position: absolute;
-      background-color: rgba(68, 67, 67, 0);
-      z-index: 999;
-      top: 10%;
-      right:0;
-      text-align: center;
-      backdrop-filter: blur(100px) brightness(.5);
+.menuphone {
+  position: absolute;
+  background-color: rgba(68, 67, 67, 0);
+  z-index: 999;
+  top: 10%;
+  right: 0;
+  text-align: center;
+  backdrop-filter: blur(100px) brightness(.5);
 
-      height: 80%;
-      width: 80%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      
-    }
+  height: 80%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    .menuphone ul {
-      display: flex;
-      flex-direction: column;
-      list-style-type: none;
-      width: 100%;
-      /* color: white; */
-      text-decoration: none;
-      
-      gap: 10px;
-      
-      
-    }
+}
 
-   .menuphone h1{
-    color: red;
-   }
+.menuphone ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  width: 100%;
+  /* color: white; */
+  text-decoration: none;
 
-    .menuphone a{
-     
-      text-decoration: none;
-      color: #f5f7fa;
-      font-size: 20px;
-    }
+  gap: 10px;
+
+
+}
+
+.menuphone h1 {
+  color: red;
+}
+
+.menuphone a {
+
+  text-decoration: none;
+  color: #f5f7fa;
+  font-size: 20px;
+}
