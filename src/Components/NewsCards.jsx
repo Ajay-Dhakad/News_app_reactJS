@@ -2,20 +2,30 @@ import React, { useState ,useEffect} from 'react'
 import useNews from '../Hooks/useNews'
 
 
+
 function NewsCards({category}) {
     const country = 'in'  
 
     const [articles,setarticles] = useState(null)
 
-
     const [page,setpage] = useState(1)
  
-    const [pagesize,setpagesize] = useState(10) 
+    const [pagesize,setpagesize] = useState() 
   
-    const datanews = useNews({country, category,page,pagesize}) 
+    const datanews = useNews({country,category,page,pagesize}) 
 
     // if (datanews){
     //    console.log(datanews);}
+    useEffect(() => {
+
+
+      setpagesize(10);
+      window.scrollTo({top:0,behavior:'smooth'})
+      
+      
+     
+
+    }, [category])
     
    
 
@@ -23,8 +33,8 @@ function nextpage(){
  
   if (page <= (Math.ceil(datanews.totalResults/Number(pagesize)))-1){
     setpagesize((prev) => prev+10)
-    window.scrollTo({ top: document.documentElement.offsetHeight, behavior: 'smooth' });
-    console.log(page)
+    
+    
 
   }
   
@@ -36,7 +46,7 @@ function nextpage(){
 
   return (
     <>
-    <div className="main" >
+   
      {
 
                datanews && datanews.articles.length > 0 ? datanews.articles.map((data) => (
@@ -67,7 +77,7 @@ function nextpage(){
 </div>
 }
 
-     </div>
+     
     </>
   ) 
 }

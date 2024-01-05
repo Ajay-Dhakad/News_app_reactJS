@@ -34,11 +34,12 @@ import { Outlet} from 'react-router-dom'
   return (
     <>
       <Header/>
+      <div  className="main" >
     
 
 <Outlet/>
 
-
+</div>
     
      <Footer/>
     </> 

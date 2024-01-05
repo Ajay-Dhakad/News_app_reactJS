@@ -9,7 +9,7 @@ useEffect(() => {
  
   
 
-    fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=80e2231a0e0e44608d2fd8cb8cc70ebd&page=${page}&pageSize=${pagesize}`)
+    fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=9d0c444658944563828048409320005a&page=${page}&pageSize=${pagesize}`)
 
       .then((response) => {
 

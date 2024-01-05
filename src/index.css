@@ -230,3 +230,61 @@ button:hover{
       background-color: #0e7626;
       cursor: pointer;
     }
+
+
+i{
+  display: none;
+}
+
+    @media (max-width:730px) {
+      header ul{
+        display: none;
+      }
+
+      i{
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+
+    .menuphone{
+      position: absolute;
+      background-color: rgba(68, 67, 67, 0);
+      z-index: 999;
+      top: 10%;
+      right:0;
+      text-align: center;
+      backdrop-filter: blur(100px) brightness(.5);
+
+      height: 80%;
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+    .menuphone ul {
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      width: 100%;
+      /* color: white; */
+      text-decoration: none;
+      
+      gap: 10px;
+      
+      
+    }
+
+   .menuphone h1{
+    color: red;
+   }
+
+    .menuphone a{
+     
+      text-decoration: none;
+      color: #f5f7fa;
+      font-size: 20px;
+    }
