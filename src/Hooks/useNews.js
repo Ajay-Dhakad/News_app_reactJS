@@ -9,7 +9,7 @@ function useNews({ country, category, page, pagesize }) {
 
 
 
-    fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=5c91fb31652b490fa5627863c3d8938f&page=${page}&pageSize=${pagesize}`)
+    fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=9d5d629dc6a1454dbe6e4418e80977b7&page=${page}&pageSize=${pagesize}`)
 
       .then((response) => {
 

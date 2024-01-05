@@ -36,9 +36,11 @@ function NewsCards({ category }) {
     setpagesize(10);
        console.log(category)
       
+       if (category){
 
        scrollToElement('head');
 
+       }
 
 
   }, [category])
@@ -77,7 +79,7 @@ function NewsCards({ category }) {
           </div>
 
 
-        )) : <h1>LOading.....</h1>
+        )) : <div className="loader"></div>
 
       }
 
@@ -86,7 +88,7 @@ function NewsCards({ category }) {
         <div className='nextpagenews'>
           {page <= (Math.ceil(datanews.totalResults / Number(pagesize))) - 1 ?
 
-            <button onClick={nextpage}>Read more <strong>→</strong></button> : <p className=''>You all Caught Up !</p>
+            <button onClick={nextpage}>Read more <strong>→</strong></button> : <p className=''>Nothing Left here...</p>
 
           }
 
