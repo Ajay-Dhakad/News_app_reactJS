@@ -5,42 +5,25 @@ import useNews from '../Hooks/useNews'
 function NewsCards({category}) {
     const country = 'in'  
 
-    const [News,setnews] = useState(null)
-
     const [articles,setarticles] = useState(null)
 
 
-    const [page,setpage] = useState(2)
+    const [page,setpage] = useState(1)
  
-    const pagesize = 10
-
-    const [totalposts,settotalposts] = useState(null)
-    
-
-    // useNews({country, category, page, pagesize}).then((data) =>{setnews(data);setarticles(data.articles);settotalposts(data.totalResults)
-    // });
+    const [pagesize,setpagesize] = useState(10) 
   
-    const fetchData = async () => {
-      try {
-        const data = await fetch('https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=1e4422fe2da64bc3bd603bd6e2517a00&page=1&pageSize=10');
-       console.log(data)
-      setnews(data.articles)
-      console.log(News)
-      } catch (error) {
-        console.error('Error fetching news data:', error);
-      }
-    }
+    const datanews = useNews({country, category,page,pagesize}) 
 
-    useEffect(() => {
-    fetchData();
-  }, [country, category, page, pagesize]);
+    // if (datanews){
+    //    console.log(datanews);}
     
-
+   
 
 function nextpage(){
  
-  if (page <= (Math.ceil(totalposts/pagesize))){
-    setpage((prev) => prev+1)
+  if (page <= (Math.ceil(datanews.totalResults/Number(pagesize)))-1){
+    setpagesize((prev) => prev+10)
+    window.scrollTo({ top: document.documentElement.offsetHeight, behavior: 'smooth' });
     console.log(page)
 
   }
@@ -53,28 +36,40 @@ function nextpage(){
 
   return (
     <>
-    <div className="main">
+    <div className="main" >
      {
 
-           articles && articles.map((data) => (
+               datanews && datanews.articles.length > 0 ? datanews.articles.map((data) => (
         // <a href={data.}></a>
             <div key={data.title} className='newscard'>
             <img src={data.urlToImage ? data.urlToImage: 'https://namiohio.org/wp-content/uploads/2021/06/news-update-1-1080x500.png' } alt="" />
-            {data.source.name && <span>publisher - { data.source.name}</span>}
+            {data.source.name && <span><p>publisher - { data.source.name}</p></span>}
                 <h1>{data.title.slice(0,100)}...</h1>
                 <p>{data.content && data.content.slice(0,150)}...</p>
+                <button onClick= {()=>window.open(`${data.url}`)} >read more</button>
            
                 </div>
                 
 
-            ))
+            )) : <h1>LOading.....</h1>
 
      }
 
-<button onClick={() => nextpage()} className='readmore'>nextpage</button>
-     </div>
-    </>
-  )
+{datanews && 
+
+ <div  className='nextpagenews'>
+ { page <= (Math.ceil(datanews.totalResults/Number(pagesize)))-1 ?
+   
+     <button onClick={nextpage}>Read more <strong>→</strong></button> : <p className=''>You all Caught Up !</p>
+   
 }
 
-export default NewsCards;
+</div>
+}
+
+     </div>
+    </>
+  ) 
+}
+
+export default NewsCards;
