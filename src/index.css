@@ -51,6 +51,8 @@ header a {
   transition: .3s all;
   padding: 0 5px;
   border-radius: 5px;
+  /* height: 30px; */
+  text-align: center;
 
   &:hover {
     background-color: red;
@@ -98,8 +100,20 @@ footer {
   height: 10%;
   background-color: #333232;
   position: absolute;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
   bottom: 0;
+
+  
 }
+
+footer a{
+    color: rgb(255, 255, 255);
+  }
 
 .main {
   width: 100%;
@@ -112,7 +126,7 @@ footer {
   flex-wrap: wrap;
   padding: 10px;
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
     perspective: 200px;
 
 
