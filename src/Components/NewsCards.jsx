@@ -22,9 +22,7 @@ function NewsCards({ category }) {
   
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      console.error(`Element with id ${elementId} not found`);
-    }
+    } 
   }
   
 
@@ -51,8 +49,6 @@ function NewsCards({ category }) {
 
     if (page <= (Math.ceil(datanews.totalResults / Number(pagesize))) - 1) {
       setpagesize((prev) => prev + 10)
-
-
 
     }
 
