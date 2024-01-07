@@ -5,7 +5,7 @@ import Homepage from './Homepage'
 
 
 
-function NewsCards({ category }) {
+function NewsCards({ category,query }) {
   const country = 'in'
 
   // const [articles, setarticles] = useState(null)
@@ -14,12 +14,20 @@ function NewsCards({ category }) {
 
   const [pagesize, setpagesize] = useState()
 
-  const datanews = useNews({ country, category, page, pagesize })
 
   const [backgroundImage,setbackgroundimage] = useState('')
   const [newsTitle,setnewstitle] = useState('')
   
 
+
+
+
+
+
+  const datanews = useNews({ country, category, page, pagesize,query})
+
+  console.log(pagesize)
+  
 
 
   function scrollToElement(elementId) {
@@ -58,7 +66,7 @@ function NewsCards({ category }) {
   
   useEffect(() => {
 
-    if (category){
+    if (category === 'general'){
 
     const timer = setInterval(() => {
 
@@ -100,8 +108,11 @@ function NewsCards({ category }) {
 
   return (
     <>
-
+      
         {category === 'general' && <Homepage id={'head'} backgroundImage={backgroundImage} newsTitle={newsTitle}/>}
+
+        {(datanews && query) && <Homepage id={'head'} backgroundImage={backgroundImage} newsTitle={newsTitle} query={query}/>}
+
       {
      
         datanews && datanews.articles.length > 0 ? datanews.articles.map((data) => (
@@ -116,7 +127,7 @@ function NewsCards({ category }) {
           </div>
 
 
-        )) : <div className="loader"></div>
+        )) : <div className="loader-wrapper"> <div className="loader"></div></div>
 
       }
 

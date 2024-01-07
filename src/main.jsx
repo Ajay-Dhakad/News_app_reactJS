@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NewsCards from './Components/NewsCards.jsx'
+import Search from './Components/Search.jsx'
 
 const router = createBrowserRouter([
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: '/technology',
         element: <NewsCards category='technology' />
+      },
+      {
+        path: '/search/:slug',
+        element: <Search />
       },
 
 

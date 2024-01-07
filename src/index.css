@@ -129,6 +129,7 @@ footer a{
   position: relative;
   padding-bottom: 0px;
     perspective: 200px;
+    
 
 
 }
@@ -432,11 +433,19 @@ i {
 
 /* -----------------LOADER--------------- */
 
+.loader-wrapper{
+  width: 60px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .loader  {
   animation: rotate 1s infinite;  
   height: 50px;
   width: 50px;
+  /* padding: 10px; */
 }
 
 .loader:before,
@@ -457,6 +466,47 @@ i {
   animation: ball2 1s infinite; 
   background-color: #00a096;
   box-shadow: 30px 0 0 #97bf0d;
+}
+
+.searchresult{
+
+  width: 100%;
+  text-align: center;
+  background-color: #d90d0daa;
+}
+
+@media (max-width:630px) {
+
+  .content h1{
+    scale: .76;
+    /* gap: 5px; */
+ 
+  }
+
+  .searchbar{
+    scale: .8;
+  }
+
+  
+
+  .content{
+    gap: 4px;
+  }
+
+  .homepage{
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+  }
+
+ 
+
+  .newscard{
+    width: 90%;
+  }
+
+ 
+  
 }
 
 @keyframes rotate {
@@ -505,3 +555,4 @@ i {
     margin-top: 0;
   }
 }
+
