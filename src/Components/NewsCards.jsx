@@ -26,7 +26,7 @@ function NewsCards({ category,query }) {
 
   const datanews = useNews({ country, category, page, pagesize,query})
 
-  console.log(pagesize)
+  // console.log(pagesize)
   
 
 
@@ -45,7 +45,7 @@ function NewsCards({ category,query }) {
 
 
     setpagesize(10);
-       console.log(category)
+      //  console.log(category)
       
        if (category){
 
@@ -66,7 +66,7 @@ function NewsCards({ category,query }) {
   
   useEffect(() => {
 
-    if (category === 'general'){
+    if (category == 'general'){
 
     const timer = setInterval(() => {
 
@@ -88,7 +88,7 @@ function NewsCards({ category,query }) {
    
     return () => clearInterval(timer);
   }
-  },[index]);
+  },[index,category]);
 
   
   
@@ -111,27 +111,38 @@ function NewsCards({ category,query }) {
       
         {category === 'general' && <Homepage id={'head'} backgroundImage={backgroundImage} newsTitle={newsTitle}/>}
 
-        {(datanews && query) && <Homepage id={'head'} backgroundImage={backgroundImage} newsTitle={newsTitle} query={query}/>}
+        {(query?.length>0) && <Homepage id={'head'} query={query} data={datanews}/>  }
 
       {
+
+
+
      
-        datanews && datanews.articles.length > 0 ? datanews.articles.map((data) => (
+        datanews && datanews?.articles.length > 0 && datanews.articles.map((data) => (
           // <a href={da
           <div key={data.title} id={category !== 'general' && 'head' } className='newscard'>
             <img src={data.urlToImage ? data.urlToImage : 'https://namiohio.org/wp-content/uploads/2021/06/news-update-1-1080x500.png'} alt="" />
             {data.source.name && <span><p>publisher - {data.source.name}</p></span>}
-            <h1>{data.title.slice(0, 100)}...</h1>
+           <a id='newscardtitle' href={data.url}><h1>{data.title.slice(0, 100)}...</h1></a> 
             <p>{data.content && data.content.slice(0, 150)}...</p>
             <button onClick={() => window.open(`${data.url}`)} >read more</button>
 
           </div>
 
 
-        )) : <div className="loader-wrapper"> <div className="loader"></div></div>
+        )) } 
+        
+        {(datanews?.articles.length == 0  && !query) && <h1>Error in fetching data...</h1> } 
 
-      }
+        {datanews == null && <div className="loader-wrapper"> <div className="loader"></div></div>}
 
-      {datanews &&
+       
+
+
+
+      
+
+      {(datanews && datanews.articles.length > 0 ) &&
 
         <div className='nextpagenews'>
           {page <= (Math.ceil(datanews.totalResults / Number(pagesize))) - 1 ?

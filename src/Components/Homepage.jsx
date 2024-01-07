@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 
-function Homepage({backgroundImage,id,newsTitle,query}) {
+function Homepage({backgroundImage,id,newsTitle,query,data}) {
   const [search,setsearch]  = useState('')
   const navigate = useNavigate()
   // console.log(search)
 
   return (
 <>
-    { !query ?
+    { !query &&
 
     (<div id={id} style={{backgroundImage:`url("${backgroundImage ? backgroundImage : 'https://wallpaperaccess.com/full/37948.jpg'}")`}} className='homepage'>
        {/* homepage */}
@@ -23,8 +23,11 @@ function Homepage({backgroundImage,id,newsTitle,query}) {
         <h2>Get News About <br /> <b>{newsTitle ? newsTitle : 'Everything !'}</b> </h2>
       </div>
 
-    </div>) : <h1 className='searchresult'>showing results for {query}</h1>
-    }
+    </div>) }
+    
+    {(query && data?.articles.length > 0) && <h1 className='searchresult'> showing {data.totalResults} results for {query}</h1> } 
+    {(query && data?.articles.length == 0) && <h1>No results found for {query}</h1> }
+    
     </>
 
   )
