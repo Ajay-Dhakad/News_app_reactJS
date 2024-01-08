@@ -5,12 +5,14 @@ function useNews({ country, category, page, pagesize,query }) {
 
   const [newsdata, setNewsdata] = useState(null)
   
+  const apiKey = String(import.meta.env.VITE_NEWS_API_KEY)
+  
 
 
 
   useEffect(() => {
 
-    const apiurl = !query ? `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=7e026601f4ed437b81906cca557fdc7d&page=${page}&pageSize=${pagesize}`: `https://newsapi.org/v2/top-headlines?q=${query}&country=${country}&apiKey=7e026601f4ed437b81906cca557fdc7d`
+    const apiurl = !query ? `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pagesize}`: `https://newsapi.org/v2/top-headlines?q=${query}&country=${country}&apiKey=7e026601f4ed437b81906cca557fdc7d`
 
     fetch(apiurl)
 
