@@ -136,12 +136,6 @@ function NewsCards({ category,query }) {
 
         {datanews == null && <div className="loader-wrapper"> <div className="loader"></div></div>}
 
-       
-
-
-
-      
-
       {(datanews && datanews.articles.length > 0 ) &&
 
         <div className='nextpagenews'>

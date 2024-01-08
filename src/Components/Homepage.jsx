@@ -26,7 +26,7 @@ function Homepage({backgroundImage,id,newsTitle,query,data}) {
     </div>) }
     
     {(query && data?.articles.length > 0) && <h1 className='searchresult'> showing {data.totalResults} results for {query}</h1> } 
-    {(query && data?.articles.length == 0) && <h1>No results found for {query}</h1> }
+    {(query && data?.articles.length == 0) && <h1>No Results Found For {query}</h1> }
     
     </>
 
