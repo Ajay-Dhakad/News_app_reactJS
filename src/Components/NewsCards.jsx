@@ -73,7 +73,7 @@ function NewsCards({ category,query }) {
 
       setbackgroundimage(homeimages[index].image)
       setnewstitle(homeimages[index].title)
-      
+
       setindex(index+1)
 
       if (index == homeimages.length-1){
@@ -126,10 +126,10 @@ function NewsCards({ category,query }) {
 
             {data.source.name && <span><p>publisher - {data.source.name}</p></span>}
 
-           <a id='newscardtitle' href={data.url}><h1>{data.title.slice(0, 100)}...</h1></a> 
+           <a id='newscardtitle' href={data.url}><h1>{data.title.slice(0, 90)}...</h1></a> 
 
             <p>{data.content && data.content.slice(0, 150)}...</p>
-            <button onClick={() => window.open(`${data.url}`)} >read more</button>
+            <button onClick={() => window.open(`${data.url}`)}>read more</button>
 
           </div>
 
