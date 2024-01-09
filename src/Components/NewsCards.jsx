@@ -38,14 +38,12 @@ function NewsCards({ category,query }) {
     } 
   }
   
-
-  // if (datanews){
-  //    console.log(datanews);}
+//to scroll to top when any change in route or category
   useEffect(() => {
 
 
     setpagesize(10);
-      //  console.log(category)
+      
       
        if (category){
 
@@ -57,6 +55,7 @@ function NewsCards({ category,query }) {
   }, [category])
 
 
+  //homepage image slider data
 
   const [index,setindex] = useState(0)
 
@@ -95,6 +94,7 @@ function NewsCards({ category,query }) {
 // }
 
 
+//next page fuction
 
   function nextpage() {
 
@@ -121,16 +121,20 @@ function NewsCards({ category,query }) {
         datanews && datanews?.articles.length > 0 && datanews.articles.map((data) => (
           // <a href={da
           <div key={data.title} id={category !== 'general' && 'head' } className='newscard'>
+
             <img src={data.urlToImage ? data.urlToImage : 'https://namiohio.org/wp-content/uploads/2021/06/news-update-1-1080x500.png'} alt="" />
+
             {data.source.name && <span><p>publisher - {data.source.name}</p></span>}
+
            <a id='newscardtitle' href={data.url}><h1>{data.title.slice(0, 100)}...</h1></a> 
+
             <p>{data.content && data.content.slice(0, 150)}...</p>
             <button onClick={() => window.open(`${data.url}`)} >read more</button>
 
           </div>
 
 
-        )) } 
+        )) }
         
         {(datanews?.articles.length == 0  && !query) && <h1>Error in fetching data...</h1> } 
 

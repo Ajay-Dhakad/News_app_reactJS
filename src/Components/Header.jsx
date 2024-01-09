@@ -60,7 +60,7 @@ function Header() {
 
         </ul>
 
-        <i onClick={() => setmenu((prev) => !prev)} class="ri-menu-fill"></i>
+        <i onClick={() => setmenu((prev) => !prev)} class={menu ? "ri-menu-4-fill" : "ri-menu-fill"}></i>
 
 
 
@@ -71,7 +71,7 @@ function Header() {
       <form  onSubmit={(e) => {e.preventDefault();navigate(`/search/${search}`);setsearch('');setmenu(false)}} className="searchbarheader">
      
      <input value={search}  onChange={(e) =>(setsearch(e.target.value)) } required type="text" placeholder='Search News...'/>
-     <input value='Search' type="submit" /> 
+     <input value='Search' type="submit" />
      </form>
 
         <h1>Categories</h1>

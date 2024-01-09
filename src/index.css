@@ -446,6 +446,10 @@ i {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation-name: menuphone;
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
 
 }
 
@@ -458,9 +462,10 @@ i {
   text-decoration: none;
 
   gap: 10px;
+ 
 
 
-}
+}   
 
 .menuphone h1 {
   color: red;
@@ -473,6 +478,18 @@ i {
   font-size: 20px;
 }
 
+@keyframes menuphone {
+
+  from{
+    transform: translateX(30%);
+  
+  }
+   
+  to{
+    transform: translateY(0%);
+  }
+  
+}
 
 /* -----------------LOADER--------------- */
 
@@ -598,4 +615,3 @@ i {
     margin-top: 0;
   }
 }
-
