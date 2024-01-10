@@ -126,9 +126,9 @@ function NewsCards({ category,query }) {
 
             {data.source.name && <span><p>publisher - {data.source.name}</p></span>}
 
-           <a id='newscardtitle' href={data.url}><h1>{data.title.slice(0, 90)}...</h1></a> 
+           <a id='newscardtitle' href={data.url}><h1>{data.title.slice(0, 100)}...</h1></a> 
 
-            <p>{data.content && data.content.slice(0, 150)}...</p>
+            <p>{data.content && data.content.slice(0, 100)}...</p>
             <button onClick={() => window.open(`${data.url}`)}>read more</button>
 
           </div>
@@ -157,4 +157,4 @@ function NewsCards({ category,query }) {
   )
 }
 
-export default NewsCards;
+export default NewsCards; 
