@@ -10,7 +10,7 @@ function NewsCards({ category, query }) {
 
   const [page, setpage] = useState(1);
 
-  const [pagesize, setpagesize] = useState();
+  const [pagesize, setpagesize] = useState(10);
 
   const [backgroundImage, setbackgroundimage] = useState("");
   const [newsTitle, setnewstitle] = useState("");
