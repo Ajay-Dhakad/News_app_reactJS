@@ -119,7 +119,7 @@ function NewsCards({ category, query }) {
           }
 
           whileInView={{opacity:1}}
-          transition={{ duration: .2, delay:.2 }}
+          transition={{ duration: .5, delay:.3 }}
           viewport={{ once: true}}
         
         
