@@ -145,7 +145,7 @@ function NewsCards({ category,query }) {
         <div className='nextpagenews'>
           {page <= (Math.ceil(datanews.totalResults / Number(pagesize))) - 1 ?
 
-            <button onClick={nextpage}>Read more <strong>→</strong></button> : <p className=''>Nothing Left here...</p>
+            <button className='readmorebtn' onClick={nextpage}>Read more <strong>→</strong></button> : <p >Nothing Left here...</p>
 
           }
 
