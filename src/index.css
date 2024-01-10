@@ -23,7 +23,7 @@ html {
   /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
   background-color: #cac5c5;
   color: rgb(0, 0, 0);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,8 +40,6 @@ header {
   align-items: center;
   padding: 0 10px;
   color: white;
-
-
 }
 
 header a {
@@ -49,7 +47,7 @@ header a {
   font-size: 17px;
   font-weight: bold;
   text-decoration: none;
-  transition: .3s all;
+  transition: 0.3s all;
   padding: 0 5px;
   border-radius: 5px;
   /* height: 30px; */
@@ -59,7 +57,6 @@ header a {
     background-color: red;
     color: white;
   }
-
 }
 
 header .logo {
@@ -67,7 +64,7 @@ header .logo {
   height: 40px;
   /* border: 2px solid red; */
 
-  background-image: url('https://cdn.jim-nielsen.com/macos/128/news-2021-05-25.png');
+  background-image: url("https://cdn.jim-nielsen.com/macos/128/news-2021-05-25.png");
 
   background-size: contain;
 }
@@ -81,8 +78,6 @@ header h1 {
   justify-content: center;
   align-items: center;
   font-size: 30px;
-
-
 }
 
 header h1 h1 {
@@ -90,14 +85,13 @@ header h1 h1 {
   /* font-size: 20px; */
 }
 
-.searchbarheader{
-  display: flex;justify-content: center;
+.searchbarheader {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.searchbarheader input[type=text]{
-
-
+.searchbarheader input[type="text"] {
   width: 70%;
   height: 40px;
   border: none;
@@ -105,11 +99,9 @@ header h1 h1 {
   font-size: 18px;
   outline: none;
   border-radius: 10px;
-
-
 }
 
-.searchbarheader input[type=submit]{
+.searchbarheader input[type="submit"] {
   height: 40px;
   width: 70px;
   padding: 5px;
@@ -141,28 +133,25 @@ footer {
   font-size: 17px;
   bottom: 0;
   /* padding: 10px; */
-
-  
 }
 
-footer .socials{
+footer .socials {
   display: flex;
   align-items: center;
   /* width: 100vw; */
-  justify-content: center;   
+  justify-content: center;
   /* border: 2px solid red; */
   padding-top: 10px;
-
 }
 
-footer .copyright{
+footer .copyright {
   height: fit-content;
   /* border: 2px solid rebeccapurple; */
 }
 
-footer a{
-    color: rgb(255, 255, 255);
-  }
+footer a {
+  color: rgb(255, 255, 255);
+}
 
 .main {
   width: 100%;
@@ -173,13 +162,10 @@ footer a{
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  padding:5px 0 10px 0;
+  padding: 5px 0 10px 0;
   position: relative;
   padding-bottom: 0px;
-    perspective: 200px;
-    
-
-
+  perspective: 200px;
 }
 
 .newscard {
@@ -190,18 +176,18 @@ footer a{
   color: rgb(0, 0, 0);
   background-color: #ffffff;
   display: flex;
-  box-shadow: rgba(0, 0, 0, 0.08) 2px 4px 12px 0px
-  ;
+  box-shadow: rgba(0, 0, 0, 0.08) 2px 4px 12px 0px;
   align-items: center;
   justify-content: start;
   flex-direction: column;
   cursor: pointer;
   overflow: hidden;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   border-radius: 10px;
   padding: 1px;
   padding-bottom: 5px;
-  transition: .2s all ease;
+  transition: 0.2s all ease;
 
   animation-name: newscards;
   animation-duration: 1.5s;
@@ -209,20 +195,16 @@ footer a{
   animation-iteration-count: 1;
 
   /* text-align: center; */
-
 }
 
 @keyframes newscards {
-  
-  from{
-    transform: scale(.99);
-    opacity: .3;
+  from {
+    transform: scale(0.99);
+    opacity: 0.3;
   }
-  to{
+  to {
     transform: scale(1);
-
   }
-  
 }
 
 .newscard img {
@@ -230,7 +212,6 @@ footer a{
   height: 200px;
   position: relative;
   /* transition: .5s; */
-
 }
 
 .newscard h1 {
@@ -264,16 +245,12 @@ footer a{
 }
 
 .newscard:hover {
-
-  transform: scale(.97);
+  transform: scale(0.97);
 
   &.newscard button {
     width: 250px;
     background-color: #0dab34;
   }
-
-
-
 }
 
 .newscard button {
@@ -285,35 +262,28 @@ footer a{
   background-color: #343333;
   font-size: 15px;
   margin-bottom: 2px;
-  transition: .5s all;
+  transition: 0.5s all;
   border-radius: 5px;
-
-
 }
 
-.newscard a{
-  color: rgb(0, 0, 0); 
+.newscard a {
+  color: rgb(0, 0, 0);
   text-decoration: none;
-} 
+}
 
-
-.newscard a:visited{
-  color: rgb(180, 2, 2); 
+.newscard a:visited {
+  color: rgb(180, 2, 2);
   text-decoration: none;
-} 
+}
 
 strong {
   font-size: 25px;
 }
 
-
-
 .nextpagenews {
-
   width: 100%;
   padding: 10px;
   text-align: center;
-
 }
 
 .nextpagenews button {
@@ -324,8 +294,6 @@ strong {
   font-size: 20px;
   font-weight: bold;
   height: 50px;
-
-
 }
 
 button:hover {
@@ -333,17 +301,15 @@ button:hover {
   cursor: pointer;
 }
 
-
 i {
   display: none;
 }
 
-.menuphone{
+.menuphone {
   display: none;
 }
 
-
-.homepage{
+.homepage {
   width: 100%;
   height: 100%;
   /* background-image: url('https://images.pexels.com/photos/5645082/pexels-photo-5645082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); */
@@ -354,47 +320,43 @@ i {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  color:white;
-  
+
+  color: white;
 }
 
-.content{
+.content {
   /* border: 2px solid red; */
   height: 100%;
   /* font-size: 20px; */
   width: 100%;
-  backdrop-filter: brightness(.5);
+  backdrop-filter: brightness(0.5);
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: start;
   flex-direction: column;
   gap: 20px;
-  
 }
 
-.content h1{
+.content h1 {
   font-size: 100px;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin-top: 100px;
 }
 
-.content h1 b{
+.content h1 b {
   background-color: red;
   border-radius: 10px;
-
-
 }
 
-.content .searchbar{
+.content .searchbar {
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.content .searchbar input[type=text]{ 
+.content .searchbar input[type="text"] {
   width: 300px;
   height: 40px;
   border-radius: 10px;
@@ -406,11 +368,7 @@ i {
   outline: none;
 }
 
-
-
-
-
-.content .searchbar input[type=submit]{
+.content .searchbar input[type="submit"] {
   width: 100px;
   height: 40px;
   margin-left: -20px;
@@ -420,27 +378,23 @@ i {
   background-color: #3d3838;
   color: white;
   font-size: 20px;
-  transition: .3s all;
-
+  transition: 0.3s all;
 }
 
-.content .searchbar input[type=submit]:hover{
-
+.content .searchbar input[type="submit"]:hover {
   background-color: #201e1e;
-
 }
 
-.content h2 b{
+.content h2 b {
   background-color: rgb(195, 2, 2);
 
   font-size: 30px;
   border-radius: 10px;
-  
+
   padding: 0 5px;
 }
 
-
-@media (max-width:790px) {
+@media (max-width: 790px) {
   header ul {
     display: none;
   }
@@ -459,7 +413,7 @@ i {
   top: 10%;
   right: 0;
   text-align: center;
-  backdrop-filter: blur(100px) brightness(.5);
+  backdrop-filter: blur(100px) brightness(0.5);
 
   height: 80%;
   width: 80%;
@@ -467,10 +421,9 @@ i {
   align-items: center;
   justify-content: center;
   animation-name: menuphone;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
   animation-fill-mode: both;
   animation-iteration-count: 1;
-
 }
 
 .menuphone ul {
@@ -482,38 +435,31 @@ i {
   text-decoration: none;
 
   gap: 10px;
- 
-
-
-}   
+}
 
 .menuphone h1 {
   color: red;
 }
 
 .menuphone a {
-
   text-decoration: none;
   color: #f5f7fa;
   font-size: 20px;
 }
 
 @keyframes menuphone {
-
-  from{
+  from {
     transform: translateX(30%);
-  
   }
-   
-  to{
+
+  to {
     transform: translateY(0%);
   }
-  
 }
 
 /* -----------------LOADER--------------- */
 
-.loader-wrapper{
+.loader-wrapper {
   width: 60px;
   height: 80px;
   display: flex;
@@ -521,89 +467,79 @@ i {
   align-items: center;
 }
 
-.loader  {
-  animation: rotate 1s infinite;  
+.loader {
+  animation: rotate 1s infinite;
   height: 50px;
   width: 50px;
   /* padding: 10px; */
 }
 
 .loader:before,
-.loader:after {   
+.loader:after {
   border-radius: 50%;
-  content: '';
+  content: "";
   display: block;
-  height: 20px;  
+  height: 20px;
   width: 20px;
 }
 .loader:before {
-  animation: ball1 1s infinite;  
+  animation: ball1 1s infinite;
   background-color: #cb2025;
   box-shadow: 30px 0 0 #f8b334;
   margin-bottom: 10px;
 }
 .loader:after {
-  animation: ball2 1s infinite; 
+  animation: ball2 1s infinite;
   background-color: #00a096;
   box-shadow: 30px 0 0 #97bf0d;
 }
 
-.searchresult{
-
+.searchresult {
   width: 100%;
   text-align: center;
   background-color: #d90d0daa;
 }
 
-@media (max-width:630px) {
-
-  .content h1{
-    scale: .76;
+@media (max-width: 630px) {
+  .content h1 {
+    scale: 0.76;
     /* gap: 5px; */
- 
   }
 
-  .searchbar{
-    scale: .8;
+  .searchbar {
+    scale: 0.8;
   }
 
-  
-
-  .content{
+  .content {
     gap: 4px;
   }
 
-  .homepage{
+  .homepage {
     width: 100%;
     height: 100%;
     padding: 0;
   }
 
- 
-
-  .newscard{
+  .newscard {
     width: 90%;
   }
 
-  .nextpagenews button{
+  .nextpagenews button {
     width: 70%;
   }
-
- 
-  
 }
 
 @keyframes rotate {
-  0% { 
-    -webkit-transform: rotate(0deg) scale(0.8); 
+  0% {
+    -webkit-transform: rotate(0deg) scale(0.8);
     -moz-transform: rotate(0deg) scale(0.8);
   }
-  50% { 
-    -webkit-transform: rotate(360deg) scale(1.2); 
+  50% {
+    -webkit-transform: rotate(360deg) scale(1.2);
     -moz-transform: rotate(360deg) scale(1.2);
   }
-  100% { 
-    -webkit-transform: rotate(720deg) scale(0.8); 
+  100% {
+    -webkit-transform: rotate(720deg) scale(0.8);
     -moz-transform: rotate(720deg) scale(0.8);
   }
 }
@@ -615,7 +551,7 @@ i {
   50% {
     box-shadow: 0 0 0 #f8b334;
     margin-bottom: 0;
-    -webkit-transform: translate(15px,15px);
+    -webkit-transform: translate(15px, 15px);
     -moz-transform: translate(15px, 15px);
   }
   100% {
@@ -631,7 +567,7 @@ i {
   50% {
     box-shadow: 0 0 0 #97bf0d;
     margin-top: -20px;
-    -webkit-transform: translate(15px,15px);
+    -webkit-transform: translate(15px, 15px);
     -moz-transform: translate(15px, 15px);
   }
   100% {
