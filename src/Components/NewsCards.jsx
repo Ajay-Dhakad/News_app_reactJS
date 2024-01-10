@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import useNews from "../Hooks/useNews";
 import Homepage from "./Homepage";
+import {motion} from 'framer-motion'
 
 function NewsCards({ category, query }) {
   const country = "in";
@@ -108,9 +109,21 @@ function NewsCards({ category, query }) {
 
       {datanews &&
         datanews?.articles.length > 0 &&
-        datanews.articles.map((data) => (
+        datanews.articles.map((data,index) => (
           // <a href={da
-          <div
+          <motion.div
+          initial = {{
+          opacity:0
+            
+          }
+          }
+
+          whileInView={{opacity:1}}
+          transition={{ duration: .2, delay:.2 }}
+          viewport={{ once: true}}
+        
+        
+          
             key={data.title}
             id={category !== "general" && "head"}
             className="newscard"
@@ -138,7 +151,7 @@ function NewsCards({ category, query }) {
             <button onClick={() => window.open(`${data.url}`)}>
               read more
             </button>
-          </div>
+          </motion.div>
         ))}
 
       {datanews?.articles.length == 0 && !query && (
