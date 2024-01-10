@@ -54,7 +54,7 @@ function Homepage({ backgroundImage, id, newsTitle, query, data }) {
       {query && data?.articles.length > 0 && (
         <h1 className="searchresult">
           {" "}
-          showing {data.totalResults} results for {query}
+          {data.totalResults} results found for {query}
         </h1>
       )}
       {query && data?.articles.length == 0 && (
