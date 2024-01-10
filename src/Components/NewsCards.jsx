@@ -34,7 +34,7 @@ function NewsCards({ category, query }) {
     if (category) {
       scrollToElement("head");
     }
-  }, [category]);
+  }, [category,query]);
 
   //homepage image slider data
 
@@ -172,7 +172,7 @@ function NewsCards({ category, query }) {
               Read more <strong>→</strong>
             </button>
           ) : (
-            <p>Nothing Left here...</p>
+            <p>Nothing Left here...</p> 
           )}
         </div>
       )}
