@@ -37,7 +37,29 @@ function NewsCards({ category, query }) {
 
   // Homepage image slider data
   const homeImages = [
-    { title: "Entertainment", image: "https://wallpaperaccess.com/full/37948.jpg" },
+    {
+      title: "Entertainment",
+      image: "https://wallpaperaccess.com/full/37948.jpg",
+    },
+    {
+      title: "Politics",
+      image:
+        "https://thelogicalindian.com/h-upload/2020/06/22/175558-modiweb.jpg",
+    },
+    {
+      title: "Sports",
+      image:
+        "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1907&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Health & Medical",
+      image:
+        "https://e0.pxfuel.com/wallpapers/28/749/desktop-wallpaper-standard.jpg",
+    },
+    {
+      title: "Technology",
+      image: "https://wallpapers.com/images/hd/4k-tech-105e3a4x7aw7coqd.jpg",
+    },
     // Add other images...
   ];
 
@@ -47,7 +69,9 @@ function NewsCards({ category, query }) {
       const timer = setInterval(() => {
         setBackgroundImage(homeImages[index].image);
         setNewsTitle(homeImages[index].title);
-        setIndex((prevIndex) => (prevIndex + 1 === homeImages.length ? 0 : prevIndex + 1));
+        setIndex((prevIndex) =>
+          prevIndex + 1 === homeImages.length ? 0 : prevIndex + 1
+        );
       }, 3000);
 
       return () => clearInterval(timer);
@@ -57,8 +81,11 @@ function NewsCards({ category, query }) {
   // Effect for displaying top headlines with a 3-second interval
   useEffect(() => {
     const interval = setInterval(() => {
+      setHeadline(null);
       setHeadline(dataNews.articles[headlineIndex].title);
-      setHeadlineIndex((prevIndex) => (prevIndex + 1 === dataNews.articles.length ? 0 : prevIndex + 1));
+      setHeadlineIndex((prevIndex) =>
+        prevIndex + 1 === dataNews.articles.length ? 0 : prevIndex + 1
+      );
     }, 3000);
 
     return () => clearInterval(interval);
@@ -75,14 +102,20 @@ function NewsCards({ category, query }) {
     <>
       {/* Displaying homepage image slider for the 'general' category */}
       {category === "general" && (
-        <Homepage id={"head"} backgroundImage={backgroundImage} newsTitle={newsTitle} />
+        <Homepage
+          id={"head"}
+          backgroundImage={backgroundImage}
+          newsTitle={newsTitle}
+        />
       )}
 
       {/* Displaying homepage with search query */}
-      {query?.length > 0 && <Homepage id={"head"} query={query} data={dataNews} />}
+      {query?.length > 0 && (
+        <Homepage id={"head"} query={query} data={dataNews} />
+      )}
 
       {/* Displaying top headlines */}
-      {headline && category === 'general' && (
+      {headline && category === "general" && (
         <div className="headlines">
           <h5>Top Headlines : </h5>
           {headline && <strong>{headline}</strong>}
