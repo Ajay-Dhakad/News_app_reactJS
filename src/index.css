@@ -166,6 +166,7 @@ footer a {
   position: relative;
   padding-bottom: 0px;
   perspective: 200px;
+  /* transition: 5s all; */
 }
 
 .newscard {
@@ -394,17 +395,6 @@ i {
   padding: 0 5px;
 }
 
-@media (max-width: 790px) {
-  header ul {
-    display: none;
-  }
-
-  i {
-    display: block;
-    font-size: 20px;
-    font-weight: bold;
-  }
-}
 
 .menuphone {
   position: absolute;
@@ -424,6 +414,52 @@ i {
   animation-duration: 0.5s;
   animation-fill-mode: both;
   animation-iteration-count: 1;
+}
+
+.headlines{
+  width: 100%;
+  height: 50px;
+  /* height: fit-content; */
+  font-size: 20px;
+  background-color: rgb(188, 38, 38);
+  color: white;
+  display: flex;
+  transition: .5s all;
+  justify-content:start;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0 1%;
+  animation-name: newscards;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  
+}
+
+.headlines h5 {
+  display: flex;
+  width: fit-content;
+  padding: 10px;
+  height:100% ;
+  /* background-color: rebeccapurple; */
+  text-wrap: nowrap;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid white; */
+}
+
+
+
+.headlines strong{
+  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s all;
+  
+  font-size: 15px;
 }
 
 .menuphone ul {
@@ -500,6 +536,21 @@ i {
   background-color: #d90d0daa;
 }
 
+@media (max-width: 790px) {
+  header ul {
+    display: none;
+  }
+
+  i {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .headlines{display: none;}
+}
+
+
 @media (max-width: 630px) {
   .content h1 {
     scale: 0.76;
@@ -527,6 +578,8 @@ i {
   .nextpagenews button {
     width: 70%;
   }
+
+  
 }
 
 @keyframes rotate {

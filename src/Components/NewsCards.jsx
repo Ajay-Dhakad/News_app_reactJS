@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import useNews from "../Hooks/useNews";
 import Homepage from "./Homepage";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 
 function NewsCards({ category, query }) {
   const country = "in";
@@ -34,7 +34,7 @@ function NewsCards({ category, query }) {
     if (category) {
       scrollToElement("head");
     }
-  }, [category,query]);
+  }, [category, query]);
 
   //homepage image slider data
 
@@ -83,6 +83,21 @@ function NewsCards({ category, query }) {
     }
   }, [index, category]);
 
+  const [headlineindx, setheadlineindx] = useState(0);
+  const [headline, setheadline] = useState();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setheadline(null)
+      setheadline(datanews.articles[headlineindx].title);
+      setheadlineindx(headlineindx + 1);
+      if (headlineindx === datanews.articles.length - 1) {
+        setheadlineindx(0);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [headlineindx, category, datanews]);
   // }
 
   //next page fuction
@@ -107,23 +122,22 @@ function NewsCards({ category, query }) {
         <Homepage id={"head"} query={query} data={datanews} />
       )}
 
+    { headline && category == 'general' &&<div className="headlines">
+        <h5>Top Headlines : </h5>
+        {headline &&<strong>{headline}</strong> }
+      </div>}
+
       {datanews &&
         datanews?.articles.length > 0 &&
-        datanews.articles.map((data,index) => (
+        datanews.articles.map((data, index) => (
           // <a href={da
           <motion.div
-          initial = {{
-          opacity:0
-            
-          }
-          }
-
-          whileInView={{opacity:1}}
-          transition={{ duration: .5, delay:.3 }}
-          viewport={{ once: true}}
-        
-        
-          
+            initial={{
+              opacity: 0,
+            }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
             key={data.title}
             id={category !== "general" && "head"}
             className="newscard"
@@ -172,7 +186,7 @@ function NewsCards({ category, query }) {
               Read more <strong>→</strong>
             </button>
           ) : (
-            <p>Nothing Left here...</p> 
+            <p>Nothing Left here...</p>
           )}
         </div>
       )}
