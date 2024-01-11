@@ -64,7 +64,7 @@ function Header() {
 
         <i
           onClick={() => setmenu((prev) => !prev)}
-          class={menu ? "ri-menu-4-fill" : "ri-menu-fill"}
+          className={menu ? "ri-menu-4-fill" : "ri-menu-fill"}
         ></i>
       </header>
 
