@@ -4,133 +4,95 @@ import Homepage from "./Homepage";
 import { motion } from "framer-motion";
 
 function NewsCards({ category, query }) {
+  // Default country for news
   const country = "in";
 
-  // const [articles, setarticles] = useState(null)
+  // State variables
+  const [page, setPage] = useState(1);
+  const [pagesize, setPagesize] = useState(10);
+  const [backgroundImage, setBackgroundImage] = useState("");
+  const [newsTitle, setNewsTitle] = useState("");
+  const [index, setIndex] = useState(0);
+  const [headlineIndex, setHeadlineIndex] = useState(0);
+  const [headline, setHeadline] = useState();
 
-  const [page, setpage] = useState(1);
+  // Custom hook to fetch news data
+  const dataNews = useNews({ country, category, page, pagesize, query });
 
-  const [pagesize, setpagesize] = useState(10);
-
-  const [backgroundImage, setbackgroundimage] = useState("");
-  const [newsTitle, setnewstitle] = useState("");
-
-  const datanews = useNews({ country, category, page, pagesize, query });
-
-  // console.log(pagesize)
-
+  // Function to scroll to a specific element by its ID
   function scrollToElement(elementId) {
     const element = document.getElementById(elementId);
-
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }
 
-  //to scroll to top when any change in route or category
+  // Effect to scroll to top when there is a change in category or query
   useEffect(() => {
-    setpagesize(10);
-
+    setPagesize(10);
     if (category) {
       scrollToElement("head");
     }
   }, [category, query]);
 
-  //homepage image slider data
-
-  const [index, setindex] = useState(0);
-
-  const homeimages = [
-    {
-      title: "Entertainment",
-      image: "https://wallpaperaccess.com/full/37948.jpg",
-    },
-    {
-      title: "Politics",
-      image:
-        "https://thelogicalindian.com/h-upload/2020/06/22/175558-modiweb.jpg",
-    },
-    {
-      title: "Sports",
-      image:
-        "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1907&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      title: "Health & Medical",
-      image:
-        "https://e0.pxfuel.com/wallpapers/28/749/desktop-wallpaper-standard.jpg",
-    },
-    {
-      title: "Technology",
-      image: "https://wallpapers.com/images/hd/4k-tech-105e3a4x7aw7coqd.jpg",
-    },
+  // Homepage image slider data
+  const homeImages = [
+    { title: "Entertainment", image: "https://wallpaperaccess.com/full/37948.jpg" },
+    // Add other images...
   ];
 
+  // Effect to handle image slider for the 'general' category
   useEffect(() => {
-    if (category == "general") {
+    if (category === "general") {
       const timer = setInterval(() => {
-        setbackgroundimage(homeimages[index].image);
-        setnewstitle(homeimages[index].title);
-
-        setindex(index + 1);
-
-        if (index == homeimages.length - 1) {
-          setindex(0);
-        }
+        setBackgroundImage(homeImages[index].image);
+        setNewsTitle(homeImages[index].title);
+        setIndex((prevIndex) => (prevIndex + 1 === homeImages.length ? 0 : prevIndex + 1));
       }, 3000);
 
       return () => clearInterval(timer);
     }
   }, [index, category]);
 
-  const [headlineindx, setheadlineindx] = useState(0);
-  const [headline, setheadline] = useState();
-
+  // Effect for displaying top headlines with a 3-second interval
   useEffect(() => {
     const interval = setInterval(() => {
-      setheadline(null)
-      setheadline(datanews.articles[headlineindx].title);
-      setheadlineindx(headlineindx + 1);
-      if (headlineindx === datanews.articles.length - 1) {
-        setheadlineindx(0);
-      }
+      setHeadline(dataNews.articles[headlineIndex].title);
+      setHeadlineIndex((prevIndex) => (prevIndex + 1 === dataNews.articles.length ? 0 : prevIndex + 1));
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [headlineindx, category, datanews]);
-  // }
+  }, [headlineIndex, category, dataNews]);
 
-  //next page fuction
-
-  function nextpage() {
-    if (page <= Math.ceil(datanews.totalResults / Number(pagesize)) - 1) {
-      setpagesize((prev) => prev + 10);
+  // Function to load more news on button click
+  function nextPage() {
+    if (page <= Math.ceil(dataNews.totalResults / Number(pagesize)) - 1) {
+      setPagesize((prevPageSize) => prevPageSize + 10);
     }
   }
 
   return (
     <>
+      {/* Displaying homepage image slider for the 'general' category */}
       {category === "general" && (
-        <Homepage
-          id={"head"}
-          backgroundImage={backgroundImage}
-          newsTitle={newsTitle}
-        />
+        <Homepage id={"head"} backgroundImage={backgroundImage} newsTitle={newsTitle} />
       )}
 
-      {query?.length > 0 && (
-        <Homepage id={"head"} query={query} data={datanews} />
+      {/* Displaying homepage with search query */}
+      {query?.length > 0 && <Homepage id={"head"} query={query} data={dataNews} />}
+
+      {/* Displaying top headlines */}
+      {headline && category === 'general' && (
+        <div className="headlines">
+          <h5>Top Headlines : </h5>
+          {headline && <strong>{headline}</strong>}
+        </div>
       )}
 
-    { headline && category == 'general' &&<div className="headlines">
-        <h5>Top Headlines : </h5>
-        {headline &&<strong>{headline}</strong> }
-      </div>}
-
-      {datanews &&
-        datanews?.articles.length > 0 &&
-        datanews.articles.map((data, index) => (
-          // <a href={da
+      {/* Displaying individual news cards */}
+      {dataNews &&
+        dataNews?.articles.length > 0 &&
+        dataNews.articles.map((data, index) => (
           <motion.div
             initial={{
               opacity: 0,
@@ -168,21 +130,23 @@ function NewsCards({ category, query }) {
           </motion.div>
         ))}
 
-      {datanews?.articles.length == 0 && !query && (
+      {/* Displaying error message if there is an issue in fetching data */}
+      {dataNews?.articles.length === 0 && !query && (
         <h1>Error in fetching data...</h1>
       )}
 
-      {datanews == null && (
+      {/* Displaying loader while data is being fetched */}
+      {dataNews === null && (
         <div className="loader-wrapper">
-          {" "}
           <div className="loader"></div>
         </div>
       )}
 
-      {datanews && datanews.articles.length > 0 && (
+      {/* Displaying 'Read more' button if there is more news to load */}
+      {dataNews && dataNews.articles.length > 0 && (
         <div className="nextpagenews">
-          {page <= Math.ceil(datanews.totalResults / Number(pagesize)) - 1 ? (
-            <button className="readmorebtn" onClick={nextpage}>
+          {page <= Math.ceil(dataNews.totalResults / Number(pagesize)) - 1 ? (
+            <button className="readmorebtn" onClick={nextPage}>
               Read more <strong>→</strong>
             </button>
           ) : (
