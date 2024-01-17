@@ -27,7 +27,7 @@ function useNews({ country, category, page, pagesize,query }) {
 
       .then((data) => {
         setNewsdata(data);
-        console.log(data.articles);
+        
 
       })
 

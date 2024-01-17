@@ -45,8 +45,11 @@ function Header() {
   return (
     <>
       <header>
+    
         <h1>
+         
           <div className="logo"></div> News<h1>Hub</h1>
+          
         </h1>
 
         <ul>
